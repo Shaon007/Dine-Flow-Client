@@ -18,7 +18,7 @@ const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Modal form submitted");
-    setIsModalOpen(false); // Close the modal on form submission
+    setIsModalOpen(false);
   };
 
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
       <footer className="max-w-[1600px] mx-auto flex justify-center px-4 text-gray-800 bg-[#1F2937]">
         <div className="container px-6 py-6">
           <Link to='/' className="flex justify-center text-white">
-            <img className="w-36 lg:w-44" src="https://i.postimg.cc/Rhn1dWfV/Screenshot-2024-12-08-210839-removebg-preview.png" alt="" />
+            <h2 className="text-2xl text-gray-100">DineFlow</h2>
           </Link>
 
           <div className="flex flex-col justify-center mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
@@ -58,10 +58,10 @@ const Footer = () => {
                   Home
                 </Link>
                 <Link
-                  to="/allProduct"
+                  to="/allFoods"
                   className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
-                  All Product
+                  All Foods
                 </Link>
                 <Link
                   to="/myProfile"
@@ -121,7 +121,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-6 text-center text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} EquiSports. All rights reserved.
+            &copy; {new Date().getFullYear()} Dine Flow. All rights reserved.
           </div>
         </div>
       </footer>

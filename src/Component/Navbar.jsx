@@ -19,7 +19,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="text-lg gap-2 flex justify-center items-center">
         <Link className="font-bold text-stone-700" to='/'>
-          <img className="md:w-36 w-28" src="https://i.postimg.cc/Rhn1dWfV/Screenshot-2024-12-08-210839-removebg-preview.png" alt="" />
+          <h2>DineFlow</h2>
         </Link>
       </div>
 
@@ -108,28 +108,28 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
-          to="/allProduct"
+          to="/allFoods"
           className={({ isActive }) =>
             `text-stone-700 ${isActive ? "border-b-2 border-gray-600 pb-1" : ""}`
           }
         >
-          All Equipment
+          All Foods
         </NavLink>
         <NavLink
-          to="/addNewProduct"
+          to="/gallery"
           className={({ isActive }) =>
             `text-stone-700 ${isActive ? "border-b-2 border-gray-600 pb-1" : ""}`
           }
         >
-          Add New
+          Gallery
         </NavLink>
         <NavLink
-          to="/myProduct"
+          to="/myFoods"
           className={({ isActive }) =>
             `text-stone-700 ${isActive ? "border-b-2 border-gray-600 pb-1" : ""}`
           }
         >
-          My Equipment
+          My Added Foods
         </NavLink>
 
         <div className="flex flex-col lg:hidden items-center gap-4 mt-4">

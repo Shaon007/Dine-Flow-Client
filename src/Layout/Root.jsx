@@ -7,12 +7,12 @@ import { Outlet, useLoaderData } from "react-router-dom";
 const Root = () => {
 
   return (
-    <>
+    <div className="">
       <Navbar></Navbar>
       <Outlet/>
       <Footer></Footer>
       <Toaster/>
-    </>
+    </div>
   );
 };
 
