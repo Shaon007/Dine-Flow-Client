@@ -4,6 +4,8 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../Provider/AuthProvider';
 import auth from '../firebase/Firebase.init';
+import Lottie from "lottie-react";
+import loginLottieData from '../assets/lottie/login.json';
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
@@ -56,82 +58,96 @@ const Login = () => {
       toast.error('Forget Pass disabled ');
       return;
     }
-    // navigate('/forgot', { state: forgetEmail });
   };
 
   return (
     <div className="flex justify-center items-center h-screen bg-[#f7f7f7]">
-      <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-[#9333EA] mb-6">Login</h2>
+      <div className="flex flex-col lg:flex-row w-full max-w-5xl p-8 bg-white shadow-lg rounded-lg">
 
-        {/* Login Form */}
-        <form onSubmit={handleSubmit}>
-          {/* Email Input */}
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-            <input
-              id="email"
-              required
-              name="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
-            />
-          </div>
+        {/* Form Section */}
+        <div className="w-full lg:w-1/2 p-4">
+          <h2 className="text-2xl font-bold text-center text-[#9333EA] mb-6">Login</h2>
 
-          {/* Password Input */}
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-            <input
-              id="password"
-              required
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
-            />
-          </div>
-          {error.login && <label className="label text-sm text-red-700">{error.login}</label>}
+          {/* Login Form */}
+          <form onSubmit={handleSubmit}>
 
-          {/* Forgot Password */}
-          <p
-            onClick={handleForgetPass}
-            className={`cursor-pointer text-[#9333EA] hover:underline ${!isForgetPassActive ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-          >
-            Forgot Password?
-          </p>
+            {/* Email Input */}
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                id="email"
+                required
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
+              />
+            </div>
 
-          {/* Login Button */}
-          <div className="my-4">
-            <button type="submit" className="w-full p-3 bg-[#9333EA] text-white rounded-lg shadow-md hover:bg-[#7b2ad7]">
-              Sign In
+            {/* Password Input */}
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+              <input
+                id="password"
+                required
+                name="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
+              />
+            </div>
+            {error.login && <label className="label text-sm text-red-700">{error.login}</label>}
+
+            {/* Forgot Password */}
+            <p
+              onClick={handleForgetPass}
+              className={`cursor-pointer text-[#9333EA] hover:underline ${!isForgetPassActive ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+            >
+              Forgot Password?
+            </p>
+
+            {/* Login Button */}
+            <div className="my-4">
+              <button type="submit" className="w-full p-3 bg-[#9333EA] text-white rounded-lg shadow-md hover:bg-[#7b2ad7]">
+                Sign In
+              </button>
+            </div>
+          </form>
+
+          {/* Google Login Button */}
+          <div className="mb-6 mt-2">
+            <button
+              onClick={handleGoogleSignIn}
+              className="mb-2 w-full flex items-center justify-center gap-3 p-3 bg-[#4285F4] text-white rounded-lg shadow-md hover:bg-[#357ae8]"
+            >
+              <i className="fa-brands fa-google"></i>
+              Sign in with Google
             </button>
           </div>
-        </form>
 
-        {/* Google Login Button */}
-        <div className="mb-6 mt-2">
-          <button
-            onClick={handleGoogleSignIn}
-            className="mb-2 w-full flex items-center justify-center gap-3 p-3 bg-[#4285F4] text-white rounded-lg shadow-md hover:bg-[#357ae8]"
-          >
-            <i className="fa-brands fa-google"></i>
-            Sign in with Google
-          </button>
+          {/* Register Now */}
+          <div className="text-center">
+            <p className="text-sm">
+              New here?{' '}
+              <Link to="/register" className="text-[#9333EA] hover:underline">Register now</Link>
+            </p>
+          </div>
         </div>
 
-        {/* Register Now */}
-        <div className="text-center">
-          <p className="text-sm">
-            New here?{' '}
-            <Link to="/register" className="text-[#9333EA] hover:underline">Register now</Link>
-          </p>
+        {/* Animation Section */}
+        <div className="hidden lg:block lg:w-1/2 p-2  justify-center items-center">
+          <Lottie
+            animationData={loginLottieData}
+            loop={true}
+            style={{ width: '450px', height: '450px' }}
+          />
         </div>
+
       </div>
     </div>
   );
