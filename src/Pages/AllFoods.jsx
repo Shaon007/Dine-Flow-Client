@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import FoodCard from "../Component/FoodCard";
 
 const AllFoods = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch all food items from the API
+  // Fetch all food items
   useEffect(() => {
     fetch("http://localhost:5000/foods")
       .then((res) => res.json())
-      .then((data) => {
-        setFoods(data);
-      });
+      .then((data) => setFoods(data));
   }, []);
 
-  // Filter foods based on the search term
+  // Filter foods based on search input
   const filteredFoods = foods.filter((food) =>
     food.foodName.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -22,43 +20,30 @@ const AllFoods = () => {
   return (
     <div className="p-6">
       {/* Page Title */}
-      <div className="bg-gray-200 text-center py-12">
-        <h2 className="text-4xl font-bold">All Foods</h2>
+      <div className="bg-gray-100 text-center py-12">
+        <h1 className="text-4xl font-bold">All Foods</h1>
       </div>
 
       {/* Search Bar */}
-      <div className="my-4 text-center">
+      <div className="my-6 flex justify-center">
         <input
           type="text"
           placeholder="Search for foods..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 border rounded-md"
+          className="p-3 border border-gray-300 rounded-lg w-full max-w-md"
         />
       </div>
 
-      {/* Displaying Food Cards */}
+      {/* Food Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredFoods.map((food) => (
-          <div key={food._id} className="border rounded-lg shadow-lg p-4 hover:shadow-xl">
-            <img
-              src={food.image}
-              alt={food.foodName}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-            <div className="mt-4">
-              <h3 className="text-xl font-semibold">{food.foodName}</h3>
-              <p className="text-blue-500">{food.foodCategory}</p>
-              <p className="text-gray-600">Available Quantity: {food.quantity}</p>
-              <p className="text-gray-800 text-2xl font-bold">${food.price}</p>
-            </div>
-            <Link to={`/foods/${food._id}`}>
-              <button className="btn bg-green-200 hover:bg-green-300 w-full mt-4">
-                Details
-              </button>
-            </Link>
-          </div>
-        ))}
+        {filteredFoods.length > 0 ? (
+          filteredFoods.map((food) => <FoodCard key={food._id} food={food} />)
+        ) : (
+          <p className="text-center col-span-full text-xl text-gray-500">
+            No foods found.
+          </p>
+        )}
       </div>
     </div>
   );
