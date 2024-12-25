@@ -1,48 +1,26 @@
-import { useEffect, useState } from "react";
-import FoodCard from "../Component/FoodCard";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const AllFoods = () => {
-  const [foods, setFoods] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // Fetch all food items from the API
-  useEffect(() => {
-    fetch("http://localhost:5000/foods")
-      .then((res) => res.json())
-      .then((data) => setFoods(data));
-  }, []);
-
-  // Filter foods based on the search term
-  const filteredFoods = foods.filter((food) =>
-    food.foodName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+const FoodCard = ({ food }) => {
+  const {foodName, foodCategory, purchaseCount, price, _id} = food;
   return (
-    <div className="p-6">
-      {/* Page Title */}
-      <div className="bg-gray-200 text-center py-12">
-        <h2 className="text-4xl font-bold">All Foods</h2>
+    <div className="border rounded-lg shadow-lg p-4 hover:shadow-xl">
+      <img
+        src={food.image}
+        alt={food.foodName}
+        className="w-full h-48 object-cover rounded-t-lg"
+      />
+      <div className="mt-4">
+        <h3 className="text-xl font-semibold">{food.foodName}</h3>
+        <p className="text-blue-500">{food.foodCategory}</p>
+        <p className="text-gray-600">Sold: {food.purchaseCount}</p>
+        <p className="text-gray-800 text-2xl font-bold">${food.price}</p>
       </div>
-
-      {/* Search Bar */}
-      <div className="my-4 text-center">
-        <input
-          type="text"
-          placeholder="Search for foods..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 border rounded-md w-3/4 sm:w-1/2"
-        />
-      </div>
-
-      {/* Displaying Food Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredFoods.map((food) => (
-          <FoodCard key={food._id} food={food} />
-        ))}
-      </div>
+      <Link to={`/foods/${_id}`}>
+        <button className="btn bg-green-200 hover:bg-green-300">Details</button>
+      </Link>
     </div>
   );
 };
 
-export default AllFoods;
+export default FoodCard;
