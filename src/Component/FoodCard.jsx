@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import FoodCard from "../Component/FoodCard";
 
 const AllFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -9,9 +9,7 @@ const AllFoods = () => {
   useEffect(() => {
     fetch("http://localhost:5000/foods")
       .then((res) => res.json())
-      .then((data) => {
-        setFoods(data);
-      });
+      .then((data) => setFoods(data));
   }, []);
 
   // Filter foods based on the search term
@@ -33,31 +31,14 @@ const AllFoods = () => {
           placeholder="Search for foods..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 border rounded-md"
+          className="p-2 border rounded-md w-3/4 sm:w-1/2"
         />
       </div>
 
       {/* Displaying Food Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredFoods.map((food) => (
-          <div key={food._id} className="border rounded-lg shadow-lg p-4 hover:shadow-xl">
-            <img
-              src={food.image}
-              alt={food.foodName}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-            <div className="mt-4">
-              <h3 className="text-xl font-semibold">{food.foodName}</h3>
-              <p className="text-blue-500">{food.foodCategory}</p>
-              <p className="text-gray-600">Available Quantity: {food.quantity}</p>
-              <p className="text-gray-800 text-2xl font-bold">${food.price}</p>
-            </div>
-            <Link to={`/foods/${food._id}`}>
-              <button className="btn bg-green-200 hover:bg-green-300 w-full mt-4">
-                Details
-              </button>
-            </Link>
-          </div>
+          <FoodCard key={food._id} food={food} />
         ))}
       </div>
     </div>
