@@ -139,6 +139,14 @@ const Navbar = () => {
         >
           Add Food
         </NavLink>
+        <NavLink
+          to="/myOrders"
+          className={({ isActive }) =>
+            `text-stone-700 ${isActive ? "border-b-2 border-gray-600 pb-1" : ""}`
+          }
+        >
+          My Orders
+        </NavLink>
 
         <div className="flex flex-col lg:hidden items-center gap-4 mt-4">
 

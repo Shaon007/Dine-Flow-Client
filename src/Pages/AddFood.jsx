@@ -10,8 +10,8 @@ const AddFood = () => {
     foodCategory: '',
     quantity: '',
     price: '',
-    buyerName: user?.displayName || 'Anonymous',
-    buyerEmail: user?.email || 'No Email',
+    addedByName: user?.displayName || 'Anonymous',
+    addedByEmail: user?.email || 'No Email',
     foodOrigin: '',
     description: {
       ingredients: '',
@@ -57,8 +57,8 @@ const AddFood = () => {
           foodCategory: '',
           quantity: '',
           price: '',
-          buyerName: user?.displayName || 'Anonymous',
-          buyerEmail: user?.email || 'No Email',
+          addedByName: user?.displayName || 'Anonymous',
+          addedByEmail: user?.email || 'No Email',
           foodOrigin: '',
           description: {
             ingredients: '',
@@ -148,7 +148,7 @@ const AddFood = () => {
             <label className="block text-sm font-medium">Added By</label>
             <input
               type="text"
-              name="username"
+              name="addedByName"
               value={user?.displayName || 'Guest'}
               readOnly
               className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
@@ -158,7 +158,7 @@ const AddFood = () => {
             <label className="block text-sm font-medium">Email</label>
             <input
               type="text"
-              name="username"
+              name="addedByEmail"
               value={user?.email || 'Guest'}
               readOnly
               className="input input-bordered w-full bg-gray-100 cursor-not-allowed"

@@ -16,38 +16,25 @@ const Purchase = () => {
     const price = form.price.value;
     const quantity = form.quantity.value;
 
-    const formatDate = (timestamp) => {
-      const date = new Date(timestamp);
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0"); // Ensures two digits
-      const day = String(date.getDate()).padStart(2, "0"); // Ensures two digits
-      return `${year}-${month}-${day}`;
-    };
-
     const newPurchase = {
-      foodName,
-      price,
       quantity,
       buyer: {
         name: user?.displayName,
         email: user?.email,
       },
-      buyingDate: formatDate(Date.now()), // Converts timestamp to yyyy-mm-dd format
+      buyingDate: new Date(),
     };
 
-    console.log(newPurchase);
-
-    fetch("http://localhost:5000/purchase", {
+    fetch("http://localhost:5000/foods/purchase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPurchase),
+      body: JSON.stringify({ foodName, newPurchase }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Your order has been placed.",
@@ -56,9 +43,9 @@ const Purchase = () => {
           });
           form.reset();
         }
-      });
+      })
+      .catch((err) => console.error("Error purchasing food:", err));
   };
-
 
   return (
     <div className="flex justify-center items-center my-10 md:w-11/12 lg:w-full mx-auto">
@@ -102,8 +89,7 @@ const Purchase = () => {
               value={foodPrice}
               placeholder="Enter price"
               readOnly={!!foodPrice}
-              className={`border px-3 py-3 text-gray-800 ${foodPrice ? "bg-gray-200" : "bg-white"
-                } rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150`}
+              className={`border px-3 py-3 text-gray-800 ${foodPrice ? "bg-gray-200" : "bg-white"} rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150`}
               required
             />
           </div>
@@ -122,40 +108,6 @@ const Purchase = () => {
               placeholder="Enter quantity"
               className="border px-3 py-3 text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               required
-            />
-          </div>
-
-          {/* Buyer Name */}
-          <div className="w-full lg:w-6/12 px-4 mb-4">
-            <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
-              htmlFor="buyerName"
-            >
-              Buyer Name
-            </label>
-            <input
-              type="text"
-              name="buyerName"
-              value={user?.displayName || ""}
-              readOnly
-              className="border px-3 py-3 text-gray-800 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-            />
-          </div>
-
-          {/* Buyer Email */}
-          <div className="w-full lg:w-6/12 px-4 mb-4">
-            <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
-              htmlFor="buyerEmail"
-            >
-              Buyer Email
-            </label>
-            <input
-              type="email"
-              name="buyerEmail"
-              value={user?.email || ""}
-              readOnly
-              className="border px-3 py-3 text-gray-800 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
             />
           </div>
 
