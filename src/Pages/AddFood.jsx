@@ -8,7 +8,7 @@ const AddFood = () => {
     foodName: '',
     foodImage: '',
     foodCategory: '',
-    quantity: '',
+    quantity: '',  // Make sure this field is included
     price: '',
     addedByName: user?.displayName || 'Anonymous',
     addedByEmail: user?.email || 'No Email',
@@ -55,7 +55,7 @@ const AddFood = () => {
           foodName: '',
           foodImage: '',
           foodCategory: '',
-          quantity: '',
+          quantity: '',  // Reset quantity after adding
           price: '',
           addedByName: user?.displayName || 'Anonymous',
           addedByEmail: user?.email || 'No Email',

@@ -1,8 +1,14 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
-const FoodDetails = ({ loggedInUserEmail }) => {
+const FoodDetails = () => {
+  const { user } = useContext(AuthContext);  // Get logged-in user info from context
+  const navigate = useNavigate();
   const food = useLoaderData();
+
   const {
     foodName,
     price,
@@ -10,19 +16,36 @@ const FoodDetails = ({ loggedInUserEmail }) => {
     foodImage,
     foodOrigin,
     addedByEmail,
+    quantity,
     description: { ingredients, makingProcedure },
   } = food;
 
   const handlePurchaseClick = () => {
-    if (loggedInUserEmail === addedByEmail) {
+    // Check if the logged-in user is the one who added the food
+    if (user?.email === addedByEmail) {
+      // Show modal to inform the user that they can't purchase the food
       Swal.fire({
         icon: "error",
         title: "Unable to Purchase",
         text: "You cannot purchase a food item that you added!",
       });
-      return;
+      return;  // Stop further execution (do not navigate)
     }
-    window.location.href = `/purchase?foodName=${encodeURIComponent(foodName)}&price=${price}`;
+
+    // Check if the food is out of stock
+    if (quantity === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Out of Stock",
+        text: "This item is currently unavailable.",
+      });
+      return;  // Stop further execution (do not navigate)
+    }
+
+    // Navigate to the purchase page, passing food details as state
+    navigate("/purchase", {
+      state: { foodName, price, quantity, foodImage },
+    });
   };
 
   return (
@@ -56,10 +79,17 @@ const FoodDetails = ({ loggedInUserEmail }) => {
             {makingProcedure}
           </p>
 
-          {/* Button to trigger purchase check */}
+          {quantity === 0 ? (
+            <p className="text-red-600 font-semibold">This item is currently unavailable.</p>
+          ) : (
+            <p className="font-semibold text-gray-700">Available Quantity: {quantity}</p>
+          )}
+
           <button
             onClick={handlePurchaseClick}
-            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+            className={`w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 ${quantity === 0 ? "cursor-not-allowed opacity-50" : ""
+              }`}
+            disabled={quantity === 0}
           >
             Purchase
           </button>
