@@ -159,7 +159,6 @@ const Purchase = () => {
             />
           </div>
 
-          {/* Submit Button */}
           <div className="w-full px-4 mt-4">
             <input
               type="submit"
