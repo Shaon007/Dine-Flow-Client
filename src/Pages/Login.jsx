@@ -6,6 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import auth from '../firebase/Firebase.init';
 import Lottie from "lottie-react";
 import loginLottieData from '../assets/lottie/login.json';
+import axios from 'axios';
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
@@ -23,8 +24,10 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
+
         toast.success('Google login successful!');
         navigate(location?.state || '/');
+
       })
       .catch((error) => {
         console.error(error);
@@ -40,6 +43,11 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
+        const user1 = { email: email }
+        axios.post('http://localhost:5000/jwt', user1)
+          .then(res => {
+            console.log(res.data);
+          })
         setUser(user);
         toast.success('Login successful!');
         setIsForgetPassActive(false);

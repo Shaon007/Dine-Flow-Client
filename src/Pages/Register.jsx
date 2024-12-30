@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../Provider/AuthProvider';
 import Lottie from "lottie-react";
 import registerLottieData from '../assets/lottie/register.json';
+import axios from 'axios';
 
 const Register = () => {
   const [error, setError] = useState({});
@@ -37,6 +38,7 @@ const Register = () => {
         const user = result.user;
         setUser(user);
         toast.success("Registration Successful.");
+      
 
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
