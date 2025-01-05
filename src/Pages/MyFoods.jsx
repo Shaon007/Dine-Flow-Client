@@ -1,20 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MyFoods = () => {
   const { user, loading } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
   const [fetchError, setFetchError] = useState(null);
 
-  // Fetch food items from API
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const response = await fetch("http://localhost:5000/foods");
-        if (!response.ok) throw new Error("Failed to fetch food items.");
-        const data = await response.json();
-        setFoods(data);
+        const response = await axios.get("http://localhost:5000/foods",{withCredentials:true});
+        setFoods(response.data);
       } catch (err) {
         console.error("Error fetching foods:", err);
         setFetchError(err.message);

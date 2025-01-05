@@ -121,7 +121,7 @@ const Navbar = () => {
 
               {/* Profile Links (Visible on smaller devices, inside the profile icon) */}
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50 profile-dropdown">
+                <div className="absolute right-0 mt-52 w-48 bg-white border rounded-lg shadow-lg z-50 profile-dropdown">
                   <NavLink
                     to="/myFoods"
                     className="block px-4 py-2 hover:bg-gray-100"

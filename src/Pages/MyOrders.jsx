@@ -11,16 +11,21 @@ const MyOrders = () => {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/purchases?email=${user?.email}`
+          `http://localhost:5000/purchases?email=${user?.email}`,
+          {
+            method: 'GET',
+            credentials: 'include', 
+          }
         );
-        if (!response.ok) throw new Error("Failed to fetch orders.");
+        if (!response.ok) throw new Error('Failed to fetch orders.');
         const data = await response.json();
         setOrders(data);
       } catch (err) {
-        console.error("Error fetching orders:", err);
+        console.error('Error fetching orders:', err);
         setFetchError(err.message);
       }
     };
+
 
     fetchOrders();
   }, [user?.email]);
