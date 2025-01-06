@@ -21,7 +21,7 @@ const UpdateFood = () => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/foods/${foodId}`);
+        const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${foodId}`);
         const data = await response.json();
         setFormData(data);
       } catch (error) {
@@ -53,7 +53,7 @@ const UpdateFood = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/foods/${foodId}`, {
+      const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${foodId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

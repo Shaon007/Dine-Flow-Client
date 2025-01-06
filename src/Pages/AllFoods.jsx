@@ -7,12 +7,11 @@ const AllFoods = () => {
 
   // Fetch all food items
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch("https://dine-flow-server-neon.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
 
-  // Filter foods based on search input
   const filteredFoods = foods.filter((food) =>
     food.foodName.toLowerCase().includes(searchTerm.toLowerCase())
   );

@@ -17,14 +17,13 @@ const Purchase = () => {
     const price = form.price.value;
     const quantity = form.quantity.value;
 
-    // Check if ordered quantity is greater than available quantity
     if (quantity > availableQuantity) {
       Swal.fire({
         icon: "error",
         title: "Order Exceeds Available Stock",
         text: `You cannot order more than the available quantity of ${availableQuantity}.`,
       });
-      return; // Stop further execution if condition is met
+      return;
     }
 
     const formatDate = (timestamp) => {
@@ -48,7 +47,7 @@ const Purchase = () => {
 
     console.log(newPurchase);
 
-    fetch("http://localhost:5000/purchase", {
+    fetch("https://dine-flow-server-neon.vercel.app/purchase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

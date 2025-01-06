@@ -45,12 +45,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/gallery",
-        element: <Gallery/>,
+        element: <Gallery />,
       },
       {
         path: '/foods/:id',
         element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({ params }) => fetch(`https://dine-flow-server-neon.vercel.app/foods/${params.id}`)
       },
       {
         path: '/purchase',
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foods/${params.id}`), 
+          fetch(`https://dine-flow-server-neon.vercel.app/foods/${params.id}`),
       },
       {
         path: "/myProfile",

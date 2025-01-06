@@ -11,7 +11,7 @@ const MyFoods = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/foods",{withCredentials:true});
+        const response = await axios.get("https://dine-flow-server-neon.vercel.app/foods", { withCredentials: true });
         setFoods(response.data);
       } catch (err) {
         console.error("Error fetching foods:", err);

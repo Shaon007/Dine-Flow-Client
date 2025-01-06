@@ -6,7 +6,7 @@ const CountryFood = ({ country, reverse }) => {
   const [food, setFood] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foods?country=${country}`)
+    fetch(`https://dine-flow-server-neon.vercel.app/foods?country=${country}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -17,7 +17,7 @@ const CountryFood = ({ country, reverse }) => {
   }, [country]);
 
   if (!food) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (

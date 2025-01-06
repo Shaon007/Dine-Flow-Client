@@ -1,55 +1,42 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyOrders = () => {
   const { user, loading } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const [orders, setOrders] = useState([]);
   const [fetchError, setFetchError] = useState(null);
 
+  // Fetch orders using axiosSecure
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/purchases?email=${user?.email}`,
-          {
-            method: 'GET',
-            credentials: 'include', 
-          }
-        );
-        if (!response.ok) throw new Error('Failed to fetch orders.');
-        const data = await response.json();
-        setOrders(data);
+        const response = await axiosSecure.get(`/purchases?email=${user?.email}`);
+        setOrders(response.data);
       } catch (err) {
-        console.error('Error fetching orders:', err);
+        console.error("Error fetching orders:", err);
         setFetchError(err.message);
       }
     };
 
-
-    fetchOrders();
-  }, [user?.email]);
-
-  if (loading) return <div>Loading user information...</div>;
-  if (fetchError) return <div>Error fetching orders: {fetchError}</div>;
+    if (user?.email) fetchOrders();
+  }, [user?.email, axiosSecure]);
 
   const handleDelete = async (orderId) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/purchases/${orderId}`,
-        {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      if (!response.ok) throw new Error("Failed to delete the order.");
-
+      await axiosSecure.delete(`/purchases/${orderId}`);
       setOrders(orders.filter((order) => order._id !== orderId));
       Swal.fire("Success", "Order deleted successfully", "success");
     } catch (err) {
+      console.error("Error deleting order:", err);
       Swal.fire("Error", err.message, "error");
     }
   };
+
+  if (loading) return <div>Loading user information...</div>;
+  if (fetchError) return <div>Error fetching orders: {fetchError}</div>;
 
   return (
     <div className="my-orders-page">
