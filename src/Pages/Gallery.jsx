@@ -6,18 +6,17 @@ const Gallery = () => {
   const [open, setOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Static images data
   const images = [
-    { src: "image1.jpg", name: "User 1", description: "Short description 1" },
-    { src: "image2.jpg", name: "User 2", description: "Short description 2" },
-    { src: "image3.jpg", name: "User 3", description: "Short description 3" },
-    { src: "image4.jpg", name: "User 4", description: "Short description 4" },
-    { src: "image5.jpg", name: "User 5", description: "Short description 5" },
-    { src: "image6.jpg", name: "User 6", description: "Short description 6" },
-    { src: "image7.jpg", name: "User 7", description: "Short description 7" },
-    { src: "image8.jpg", name: "User 8", description: "Short description 8" },
-    { src: "image9.jpg", name: "User 9", description: "Short description 9" },
-    { src: "image10.jpg", name: "User 10", description: "Short description 10" },
+    { src: "https://i.pinimg.com/736x/b0/37/cf/b037cf4b84a9f217b5576d07d4011f6a.jpg", name: "Veg Plater", description: "Fresh veggies with delightful flavors." },
+    { src: "https://i.pinimg.com/736x/37/e8/a9/37e8a9af781d6f95b8fb2578681740e6.jpg", name: "Poached Salmon", description: "Tender Salmon in Coconut Lime Sauce" },
+    { src: "https://i.pinimg.com/736x/4d/1d/e0/4d1de0f3698d6d193066ad8ea1dfec63.jpg", name: "Spring Roll", description: "Crispy rolls with savory filling." },
+    { src: "https://i.pinimg.com/736x/ca/bf/cc/cabfcc101fa6f6d99b3c07e9997f7c47.jpg", name: "Chicken Biriyani", description: "Spiced rice with tender chicken." },
+    { src: "https://i.pinimg.com/736x/92/15/61/9215615b380536f5903fb6c55c2bb0a4.jpg", name: "Chicken Chowmen", description: "Stir-fried noodles with chicken." },
+    { src: "https://i.pinimg.com/736x/79/e1/ee/79e1eea4361f31fd5f31d0280a2e5a04.jpg", name: "Samusa", description: "Crispy pastry filled with spiced filling." },
+    { src: "https://i.pinimg.com/736x/9d/45/e8/9d45e8a091f54f542a71e24ef5ccda2a.jpg", name: "Chocolet Cake", description: "Rich, moist, and decadent chocolate treat." },
+    { src: "https://i.pinimg.com/736x/52/34/90/5234907fb35fc29a79936fafc078e70f.jpg", name: "Caramel Hazzlenut IceCoffee", description: "Sweet, creamy, and nutty iced delight." },
+    { src: "https://i.pinimg.com/736x/a6/d5/53/a6d553f0cdf28c81723f3d0e4008d3d2.jpg", name: "Cheeseballs", description: "Juicy, savory, and perfectly seasoned." },
+    { src: "https://i.pinimg.com/736x/33/1b/66/331b66f73e93cf722819fe05758493d2.jpg", name: "Ratatouille", description: "Colorful vegetable medley in sauce." },
   ];
 
   const handleImageClick = (index) => {
@@ -41,7 +40,7 @@ const Gallery = () => {
             <img
               src={image.src}
               alt={`Gallery image ${index + 1}`}
-              className="w-full h-48 object-cover rounded-lg shadow-md"
+              className="w-full h-60 object-cover rounded-lg shadow-md"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
