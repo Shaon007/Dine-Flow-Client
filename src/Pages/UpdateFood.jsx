@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const UpdateFood = () => {
-  const { foodId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     foodName: '',
@@ -21,7 +21,8 @@ const UpdateFood = () => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${foodId}`);
+        console.log(id);
+        const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${id}`);
         const data = await response.json();
         setFormData(data);
       } catch (error) {
@@ -30,7 +31,7 @@ const UpdateFood = () => {
     };
 
     fetchFoodDetails();
-  }, [foodId]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +54,7 @@ const UpdateFood = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${foodId}`, {
+      const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ const UpdateFood = () => {
 
       if (response.ok) {
         toast.success('Food item updated successfully!');
-        navigate('/foods'); // Navigate to another page after updating
+        navigate('/foods');
       } else {
         toast.error('Failed to update food item');
       }

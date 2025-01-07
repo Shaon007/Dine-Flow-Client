@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+
 const axiosInstance = axios.create({
   baseURL: "https://dine-flow-server-neon.vercel.app",
   withCredentials: true,

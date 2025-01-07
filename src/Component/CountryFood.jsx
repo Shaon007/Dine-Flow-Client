@@ -2,19 +2,20 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 
-const CountryFood = ({ country, reverse }) => {
+const CountryFood = ({ country, reverse, foodId }) => {
   const [food, setFood] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dine-flow-server-neon.vercel.app/foods?country=${country}`)
+    fetch(`https://dine-flow-server-neon.vercel.app/foods/${foodId}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          setFood(data[0]);
+        console.log("Data for", country, data);
+        if (data) {
+          setFood(data);
         }
       })
       .catch((err) => console.error("Error fetching country food:", err));
-  }, [country]);
+  }, [foodId]);
 
   if (!food) {
     return <Loading />;
@@ -23,8 +24,7 @@ const CountryFood = ({ country, reverse }) => {
   return (
     <Link
       to={`/foods/${food._id}`}
-      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""
-        } items-center bg-gray-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
+      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-center bg-gray-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
     >
       <div className="md:w-1/2">
         <img

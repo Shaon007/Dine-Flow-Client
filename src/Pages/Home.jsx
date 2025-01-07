@@ -5,21 +5,42 @@ import CountryFood from '../Component/CountryFood';
 import Review from '../Component/Review';
 
 const Home = () => {
+  const countries = [
+    {
+      country: "Bangladesh",
+      foodId: "676d977cc53a3d0b40bc14ff",
+    },
+    {
+      country: "Mexican",
+      foodId: "676c34ea2194f190a5bea628",
+    },
+    {
+      country: "Japanese",
+      foodId: "676c34ea2194f190a5bea629",
+    },
+  ];
+
   return (
     <div>
-      <Banner></Banner>
-      <TopFood></TopFood>
+      <Banner />
+
+      <TopFood />
 
       {/* Country Food Section */}
-      <div className="p-6 space-y-8 w-11/12  mx-auto">
+      <div className="p-6 space-y-8 w-11/12 mx-auto">
         <h2 className="text-4xl font-bold text-center mb-6">Explore Your Native Foods...</h2>
-        <CountryFood country="China" />
-        <CountryFood country="Italy" reverse />
-        <CountryFood country="Japan" />
+
+        {/* Display food from China */}
+        <CountryFood country="Bangladesh" foodId="676d977cc53a3d0b40bc14ff" />
+
+        {/* Display food from Italy */}
+        <CountryFood country="Mexican" foodId="676c34ea2194f190a5bea628" reverse />
+
+        {/* Display food from Japan */}
+        <CountryFood country="Japanese" foodId="676c34ea2194f190a5bea629" />
       </div>
 
-      {/* review Section */}
-        <Review></Review>
+      <Review />
     </div>
   );
 };

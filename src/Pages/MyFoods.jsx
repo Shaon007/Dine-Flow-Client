@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { FaGears } from "react-icons/fa6";
 
 const MyFoods = () => {
   const { user, loading } = useContext(AuthContext);
@@ -25,19 +26,18 @@ const MyFoods = () => {
   if (loading) return <div>Loading user information...</div>;
   if (fetchError) return <div>Error fetching food data: {fetchError}</div>;
 
-  // Filter foods based on the logged-in user's email
   const userFoods = foods.filter(
     (food) => food.addedByEmail?.toLowerCase() === user?.email?.toLowerCase()
   );
 
   return (
-    <div className="my-foods-page">
-      <h1 className="text-2xl font-bold mb-4">My Foods</h1>
+    <div className="my-foods-page my-12">
+      <h1 className="text-4xl text-center  font-bold my-6 ">My Foods</h1>
       {userFoods.length > 0 ? (
-        <table className="min-w-full table-auto border-collapse">
+        <table className="mx-auto table-auto border-collapse w-10/12">
           <thead>
             <tr>
-              <th className="px-4 py-2 border">Image</th>
+              <th className="px-2 py-2 border">Image</th>
               <th className="px-4 py-2 border">Food Name</th>
               <th className="px-4 py-2 border">Category</th>
               <th className="px-4 py-2 border">Price</th>
@@ -48,11 +48,11 @@ const MyFoods = () => {
           <tbody>
             {userFoods.map((food) => (
               <tr key={food._id}>
-                <td className="px-4 py-2 border">
+                <td className="px-2 py-2 border">
                   <img
                     src={food.foodImage}
                     alt={food.foodName}
-                    className="w-16 h-16 object-cover rounded"
+                    className="w-16 h-16 object-cover rounded mx-auto"
                   />
                 </td>
                 <td className="px-4 py-2 border">{food.foodName}</td>
@@ -61,9 +61,7 @@ const MyFoods = () => {
                 <td className="px-4 py-2 border">{food.purchaseCount || 0}</td>
                 <td className="px-4 py-2 border">
                   <Link to={`/updateFood/${food._id}`}>
-                    <button className="btn bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded">
-                      Update
-                    </button>
+                      <FaGears className="w-10 h-10 mx-auto"></FaGears>
                   </Link>
                 </td>
               </tr>

@@ -8,7 +8,7 @@ const Purchase = () => {
   const location = useLocation();
   const foodName = location.state?.foodName || "";
   const foodPrice = location.state?.price || "";
-  const availableQuantity = location.state?.quantity || 0; // Fetch available quantity
+  const availableQuantity = location.state?.quantity || 0;
 
   const handlePurchase = (e) => {
     e.preventDefault();

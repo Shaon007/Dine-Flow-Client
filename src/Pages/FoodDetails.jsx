@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const FoodDetails = () => {
-  const { user } = useContext(AuthContext);  // Get logged-in user info from context
+  const { user } = useContext(AuthContext);  
   const navigate = useNavigate();
   const food = useLoaderData();
 
@@ -21,28 +21,24 @@ const FoodDetails = () => {
   } = food;
 
   const handlePurchaseClick = () => {
-    // Check if the logged-in user is the one who added the food
     if (user?.email === addedByEmail) {
-      // Show modal to inform the user that they can't purchase the food
       Swal.fire({
         icon: "error",
         title: "Unable to Purchase",
         text: "You cannot purchase a food item that you added!",
       });
-      return;  // Stop further execution (do not navigate)
+      return;
     }
 
-    // Check if the food is out of stock
     if (quantity === 0) {
       Swal.fire({
         icon: "error",
         title: "Out of Stock",
         text: "This item is currently unavailable.",
       });
-      return;  // Stop further execution (do not navigate)
+      return;
     }
 
-    // Navigate to the purchase page, passing food details as state
     navigate("/purchase", {
       state: { foodName, price, quantity, foodImage },
     });
