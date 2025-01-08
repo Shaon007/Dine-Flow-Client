@@ -1,8 +1,36 @@
-# React + Vite
+# Dine Flow - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dine Flow is a food listing and management platform designed to allow users to add, update, and browse food items. The frontend is built using React to ensure a responsive and dynamic user experience.
 
-Currently, two official plugins are available:
+## Live URL
+[Live Demo](https://dine-flow-2abf7.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose
+The purpose of this project is to provide a user-friendly interface for managing food items. Users can:
+- View food items.
+- Add new food items.
+- Update existing food details.
+- Filter and categorize food items based on user association.
+
+## Key Features
+- **Responsive Design**: Tailored for both desktop and mobile users using Tailwind CSS.
+- **User Authentication**: Context-based authentication integrated with the backend.
+- **Dynamic Food Management**: Users can view their added food items and update details.
+- **Error Handling**: Displays appropriate messages for loading and API errors.
+- **Interactive Icons**: Provides a smooth user experience with intuitive controls.
+
+## Technologies Used
+- React
+- React Router
+- Axios
+- Tailwind CSS
+- React Icons
+
+## NPM Packages
+- `react`: Core framework for building the user interface.
+- `react-router-dom`: For routing between pages.
+- `axios`: To handle API requests.
+- `react-icons`: For implementing beautiful and scalable icons.
+
+
+---

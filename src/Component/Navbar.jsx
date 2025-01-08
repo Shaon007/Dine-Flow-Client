@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; // Import NavLink
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
@@ -16,14 +16,13 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut();
-    setDropdownOpen(false); // Close dropdown on logout
+    setDropdownOpen(false);
   };
 
   const toggleHamburgerMenu = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
 
-  // Close dropdowns if clicking outside
   const handleClickOutside = (event) => {
     if (
       dropdownOpen &&
@@ -37,7 +36,6 @@ const Navbar = () => {
     }
   };
 
-  // Set up event listener for clicks outside
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -50,7 +48,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="text-lg gap-2 flex justify-center items-center">
         <NavLink className="font-bold text-stone-700" to="/">
-          <h2>DineFlow</h2>
+          <h2>Dine<span className="text-xl italic text-red-600">Flow</span></h2>
         </NavLink>
       </div>
 
@@ -119,7 +117,7 @@ const Navbar = () => {
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               />
 
-              {/* Profile Links (Visible on smaller devices, inside the profile icon) */}
+              {/* Profile Links  */}
               {dropdownOpen && (
                 <div className="absolute right-0 mt-52 w-48 bg-white border rounded-lg shadow-lg z-50 profile-dropdown">
                   <NavLink
@@ -161,7 +159,7 @@ const Navbar = () => {
               <div className="hidden lg:block">
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 border-2 rounded-lg text-stone-700 hover:bg-stone-100"
+                  className="btn ml-2 px-2 py-1 border-2 rounded-lg text-stone-700 hover:bg-stone-100"
                 >
                   Logout
                 </button>
