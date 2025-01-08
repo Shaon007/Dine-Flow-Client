@@ -54,7 +54,7 @@ const UpdateFood = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://dine-flow-server-neon.vercel.app/foods/${id}`, {
+      const response = await fetch(`https://dine-flow-server-neon.vercel.app/updateFoods/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const UpdateFood = () => {
 
       if (response.ok) {
         toast.success('Food item updated successfully!');
-        navigate('/foods');
+        navigate('/allFoods');
       } else {
         toast.error('Failed to update food item');
       }

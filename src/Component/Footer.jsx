@@ -64,7 +64,7 @@ const Footer = () => {
                   All Foods
                 </Link>
                 <Link
-                  to="/myProfile"
+                  to=""
                   className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   Profile
