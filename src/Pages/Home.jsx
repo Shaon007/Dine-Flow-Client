@@ -3,6 +3,7 @@ import Banner from '../Component/Banner';
 import TopFood from './TopFood';
 import CountryFood from '../Component/CountryFood';
 import Review from '../Component/Review';
+import Welcome from '../Component/Welcome';
 
 const Home = () => {
   const countries = [
@@ -23,7 +24,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-
+      <Welcome/>
       <TopFood />
 
       {/* Country Food Section */}

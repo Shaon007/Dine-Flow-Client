@@ -53,22 +53,22 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`max-w-[1600px] mx-auto flex justify-between items-center px-8 py-2  fixed top-0 w-full z-50 shadow-lg transition-all duration-300 ${scrolled ? "bg-gray-600 shadow-md" : "bg-transparent"
+    <div className={`max-w-[1600px] mx-auto flex justify-between items-center px-16 py-2  fixed top-0 w-full z-50 shadow-lg transition-all duration-300 ${scrolled ? "bg-[#1F2937] shadow-md" : "bg-black bg-opacity-30"
       }`}>
       {/* Logo */}
       <div className="text-lg gap-2 flex justify-center items-center">
-        <NavLink className="font-bold text-stone-700" to="/">
-          <h2 className="text-amber-100">Dine<span className="text-xl italic text-red-600">Flow</span></h2>
+        <NavLink className="font-bold text-2xl text-stone-700" to="/">
+          <h2 className="text-red-300 font-semibold">Dine<span className="font-semibold text-2xl italic text-red-600  ">Flow</span></h2>
         </NavLink>
       </div>
 
       {/* Navigation Links */}
-      <div className="gap-6 items-center hidden lg:flex">
+      <div className="gap-6 items-center hidden lg:flex text-xl">
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-amber-100 hover:text-cyan-500 underline underline-offset-4"
-              : "text-amber-100 hover:text-cyan-500 transition-colors duration-200"
+              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
+              : "text-cyan-500 hover:text-cyan-500 transition-colors duration-200"
           }
           to="/"
         >
@@ -77,8 +77,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-amber-100 hover:text-cyan-500 underline"
-              : "text-amber-100 hover:text-cyan-500"
+              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
+              : "text-cyan-500 hover:text-cyan-500"
           }
           to="/allFoods"
         >
@@ -87,8 +87,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-amber-100 hover:text-cyan-500 underline"
-              : "text-amber-100 hover:text-cyan-500"
+              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
+              : "text-cyan-500 hover:text-cyan-500"
           }
           to="/gallery"
         >

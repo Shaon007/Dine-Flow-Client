@@ -17,7 +17,7 @@ const AllFoods = () => {
   );
 
   return (
-    <div className="p-6 bg-gray-300">
+    <div className="p-6 bg-gray-200">
       {/* Page Title */}
       <div className=" text-center pt-20">
         <h1 className="text-4xl font-bold">All Foods</h1>
