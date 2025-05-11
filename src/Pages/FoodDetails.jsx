@@ -1,11 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const FoodDetails = () => {
-  const { user } = useContext(AuthContext);  
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const food = useLoaderData();
 
@@ -45,50 +44,57 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg my-5">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-800">{foodName}</h2>
-        <p className="text-lg text-blue-600 font-semibold">{foodCategory}</p>
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/2">
-          <img
-            src={foodImage}
-            alt={foodName}
-            className="rounded-lg shadow-md w-full object-cover h-72"
-          />
+    <div className="min-h-screen bg-stone-200 dark:bg-gray-900 overflow-hidden flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-5xl bg-white dark:bg-stone-200 shadow-xl rounded-xl overflow-hidden">
+        <div className="text-center px-4 py-6 border-b">
+          <h2 className="font-mono text-3xl md:text-4xl font-bold text-gray-800">{foodName}</h2>
+          <p className="text-blue-600 font-medium text-md md:text-lg mt-2">{foodCategory}</p>
         </div>
 
-        <div className="flex-1 space-y-4">
-          <p>
-            <span className="font-semibold text-gray-700">Origin:</span> {foodOrigin}
-          </p>
-          <p>
-            <span className="font-semibold text-gray-700">Price:</span> ${price}
-          </p>
-          <p>
-            <span className="font-semibold text-gray-700">Ingredients:</span> {ingredients}
-          </p>
-          <p>
-            <span className="font-semibold text-gray-700">Making Procedure:</span>{" "}
-            {makingProcedure}
-          </p>
+        <div className="flex flex-col md:flex-row gap-8 p-6">
+          {/* Image */}
+          <div className="md:w-1/2 w-full">
+            <img
+              src={foodImage}
+              alt={foodName}
+              className="rounded-lg shadow-md w-full h-72 object-cover"
+            />
+          </div>
 
-          {quantity === 0 ? (
-            <p className="text-red-600 font-semibold">This item is currently unavailable.</p>
-          ) : (
-            <p className="font-semibold text-gray-700">Available Quantity: {quantity}</p>
-          )}
+          {/* Details */}
+          <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 overflow-auto">
+            <div className="space-y-3 text-gray-700 text-base">
+              <p>
+                <span className="font-semibold">Origin:</span> {foodOrigin}
+              </p>
+              <p>
+                <span className="font-semibold">Price:</span> ${price}
+              </p>
+              <p>
+                <span className="font-semibold">Ingredients:</span> {ingredients}
+              </p>
+              <p>
+                <span className="font-semibold">Making Procedure:</span> {makingProcedure}
+              </p>
+              <p className={quantity === 0 ? "text-red-600 font-semibold" : "font-semibold"}>
+                {quantity === 0
+                  ? "This item is currently unavailable."
+                  : `Available Quantity: ${quantity}`}
+              </p>
+            </div>
 
-          <button
-            onClick={handlePurchaseClick}
-            className={`w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 ${quantity === 0 ? "cursor-not-allowed opacity-50" : ""
-              }`}
-            disabled={quantity === 0}
-          >
-            Purchase
-          </button>
+            <button
+              onClick={handlePurchaseClick}
+              disabled={quantity === 0}
+              className={`w-full mt-6 py-3 text-lg rounded-lg transition-all duration-300 font-semibold
+                ${quantity === 0
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-cyan-600 hover:bg-cyan-700 text-white"
+                }`}
+            >
+              Purchase
+            </button>
+          </div>
         </div>
       </div>
     </div>

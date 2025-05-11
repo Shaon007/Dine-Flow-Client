@@ -53,7 +53,7 @@ const AllFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 ">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => <FoodCard key={food._id} food={food} />)
         ) : (

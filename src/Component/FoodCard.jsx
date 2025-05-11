@@ -9,7 +9,7 @@ const FoodCard = ({ food }) => {
       <img
         src={foodImage}
         alt={foodName}
-        className="w-56 md:w-full h-36 md:h-48 object-cover"
+        className="w-full h-36 md:h-48 object-cover"
       />
 
       <div className="p-4 space-y-2 ">

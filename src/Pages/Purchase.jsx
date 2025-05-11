@@ -70,10 +70,10 @@ const Purchase = () => {
   };
 
   return (
-    <div className="flex justify-center items-center my-10 md:w-11/12 lg:w-full mx-auto">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden flex items-center justify-center px-4 py-8">
       <form
         onSubmit={handlePurchase}
-        className="max-w-3xl mx-auto bg-[#F4F3F0] px-6 py-6 rounded-xl"
+        className="max-w-3xl w-full bg-[#F4F3F0] dark:bg-stone-300 px-6 py-6 rounded-xl shadow-lg overflow-auto"
       >
         <h6 className="text-gray-800 text-3xl mt-3 mb-6 font-bold uppercase text-center">
           Purchase Food
@@ -82,7 +82,7 @@ const Purchase = () => {
           {/* Food Name */}
           <div className="w-full px-4 mb-4">
             <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
+              className="block uppercase text-gray-500 text-xs font-bold mb-2"
               htmlFor="foodName"
             >
               Food Name
@@ -92,7 +92,7 @@ const Purchase = () => {
               name="foodName"
               value={foodName}
               readOnly
-              className="border px-3 py-3 text-gray-800 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              className="border px-3 py-3 text-gray-500 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               required
             />
           </div>
@@ -100,7 +100,7 @@ const Purchase = () => {
           {/* Price */}
           <div className="w-full lg:w-6/12 px-4 mb-4">
             <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
+              className="block uppercase text-gray-500 text-xs font-bold mb-2"
               htmlFor="price"
             >
               Price
@@ -111,7 +111,7 @@ const Purchase = () => {
               value={foodPrice}
               placeholder="Enter price"
               readOnly={!!foodPrice}
-              className={`border px-3 py-3 text-gray-800 ${foodPrice ? "bg-gray-200" : "bg-white"
+              className={`border px-3 py-3 text-gray-500 ${foodPrice ? "bg-gray-200" : "bg-white"
                 } rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150`}
               required
             />
@@ -137,7 +137,7 @@ const Purchase = () => {
           {/* Buyer Name */}
           <div className="w-full lg:w-6/12 px-4 mb-4">
             <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
+              className="block uppercase text-gray-500 text-xs font-bold mb-2"
               htmlFor="buyerName"
             >
               Buyer Name
@@ -147,14 +147,14 @@ const Purchase = () => {
               name="buyerName"
               value={user?.displayName || ""}
               readOnly
-              className="border px-3 py-3 text-gray-800 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              className="border px-3 py-3 text-gray-500 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
             />
           </div>
 
           {/* Buyer Email */}
           <div className="w-full lg:w-6/12 px-4 mb-4">
             <label
-              className="block uppercase text-gray-800 text-xs font-bold mb-2"
+              className="block uppercase text-gray-500 text-xs font-bold mb-2"
               htmlFor="buyerEmail"
             >
               Buyer Email
@@ -164,7 +164,7 @@ const Purchase = () => {
               name="buyerEmail"
               value={user?.email || ""}
               readOnly
-              className="border px-3 py-3 text-gray-800 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              className="border px-3 py-3 text-gray-500 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
             />
           </div>
 
@@ -172,7 +172,7 @@ const Purchase = () => {
             <input
               type="submit"
               value="Purchase"
-              className="w-full py-3 rounded-md text-white font-semibold bg-blue-500 hover:bg-blue-600 transition-all duration-150 cursor-pointer"
+              className="w-full py-3 rounded-md text-white font-semibold bg-cyan-600 hover:bg-cyan-700 transition-all duration-150 cursor-pointer"
             />
           </div>
         </div>
