@@ -34,8 +34,8 @@ const MyFoods = () => {
   );
 
   return (
-    <div className="min-h-screen  bg-gray-50 dark:bg-gray-900 py-16 px-20 flex flex-col justify-center ">
-      <h1 className="text-3xl md:text-4xl font-bold text-center dark:text-gray-200 mb-20 font-mono">My Foods</h1>
+    <div className="min-h-screen  bg-gray-50 dark:bg-gray-900 py-16 px-2 md:px-20 flex flex-col justify-center ">
+      <h1 className="text-3xl md:text-4xl font-bold text-center dark:text-gray-200 mb-10 md:mb-20 font-mono">My Foods</h1>
 
       {userFoods.length > 0 ? (
         <div className="overflow-x-auto">

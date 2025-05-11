@@ -75,7 +75,7 @@ const AddFood = () => {
 
   return (
     <div className="py-10 p-8  mx-auto w-screen bg-stone-200 dark:bg-gray-900">
-      <h1 className="text-4xl font-bold py-12 text-center font-mono dark:text-gray-200">Add Food Item</h1>
+      <h1 className="text-3xl md:text-4xl font-bold py-12 text-center font-mono dark:text-gray-200">Add Food Item</h1>
       <form onSubmit={handleSubmit} className="space-y-4 max-w-3xl mx-auto">
         <div className='grid grid-cols-2 gap-5'>
           <div >

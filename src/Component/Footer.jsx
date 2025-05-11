@@ -50,34 +50,34 @@ const Footer = () => {
 
           <div className="flex flex-col items-center justify-center md:flex-row">
             <div className="flex mt-4 md:m-0">
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center gap-4">
                 <Link
                   to="/"
-                  className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
+                  className=" text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   Home
                 </Link>
                 <Link
                   to="/allFoods"
-                  className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
+                  className=" text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   All Foods
                 </Link>
                 <Link
                   to=""
-                  className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
+                  className=" text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   Profile
                 </Link>
                 <Link
                   to=""
-                  className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
+                  className=" text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   FAQ
                 </Link>
                 <button
                   onClick={handleModal}
-                  className="px-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
+                  className="text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline"
                 >
                   Contact Us
                 </button>

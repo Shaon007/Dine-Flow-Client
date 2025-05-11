@@ -25,12 +25,12 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 pb-10">
       {/* Page Title */}
       <h1 className="text-4xl pt-10 font-mono font-bold text-center mb-10 dark:text-gray-200">Gallery</h1>
 
       {/* Gallery Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-6">
         {images.map((image, index) => (
           <div
             key={index}
@@ -40,7 +40,7 @@ const Gallery = () => {
             <img
               src={image.src}
               alt={`Gallery image ${index + 1}`}
-              className="w-full h-60 object-cover rounded-lg shadow-md"
+              className="w-48 md:w-full h-52 object-cover rounded-lg shadow-md"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">

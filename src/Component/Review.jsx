@@ -49,7 +49,7 @@ const Review = () => {
           >
             <div className="w-full h-[400px] bg-[url('https://img.freepik.com/premium-photo/flat-lay-delicious-food-plain-background-with-copy-space_23-2148305617.jpg?w=1380')] bg-cover bg-center bg-no-repeat brightness-75  flex flex-col justify-center items-center text-gray-700 px-4 text-center">
               <Zoom>
-                <blockquote className="text-2xl md:text-3xl font-semibold mb-4 max-w-2xl">
+                <blockquote className="text-xl md:text-3xl font-semibold mb-4 max-w-2xl">
                   “{review.quote}”
                 </blockquote>
               </Zoom>
@@ -60,7 +60,7 @@ const Review = () => {
                     alt={review.name}
                     className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white mb-2"
                   />
-                  <h3 className="text-lg md:text-xl font-bold">{review.name}</h3>
+                  <h3 className="text-md md:text-xl font-bold">{review.name}</h3>
                 </div>
               </Fade>
             </div>

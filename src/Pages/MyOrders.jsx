@@ -50,8 +50,8 @@ const MyOrders = () => {
   if (fetchError) return <div className="text-center text-red-600">Error: {fetchError}</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-20 flex flex-col justify-center">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-gray-200 font-mono">My Orders</h1>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-2 md:px-20 flex flex-col justify-center">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 dark:text-gray-200 font-mono">My Orders</h1>
 
       {orders.length > 0 ? (
         <div className="overflow-x-auto">

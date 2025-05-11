@@ -18,10 +18,10 @@ export default function App() {
       <div className='relative'>
         <div className='absolute inset-0 flex items-center justify-center z-20'>
           <div className='text-center text-white font-mono'>
-            <h2 className='text-2xl font-semibold'>-- Savor the Flavor --</h2>
-            <h2 className='text-white text-8xl font-bold italic'>DineFlow</h2>
-            <h2 className='text-xl'>Where Every Bite Tells a Story.</h2>
-            <button className='mt-16 border-b-2 border-cyan-500 text-2xl hover:text-cyan-500'>Contact US</button>
+            <h2 className='text-md md:text-2xl font-semibold'>-- Savor the Flavor --</h2>
+            <h2 className='text-white text-2xl md:text-8xl font-bold italic'>DineFlow</h2>
+            <h2 className='text-md md:text-xl'>Where Every Bite Tells a Story.</h2>
+            <button className='mt-16 border-b-2 border-cyan-500 text-xl md:text-2xl hover:text-cyan-500'>Contact US</button>
           </div>
         </div>
         <Swiper
