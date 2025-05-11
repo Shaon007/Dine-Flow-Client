@@ -23,8 +23,8 @@ const Footer = () => {
 
   return (
     <div>
-      <footer className="max-w-[1600px] mx-auto flex justify-center px-4 text-gray-800 bg-[#1F2937]">
-        <div className="container px-6 py-6">
+      <footer className=" max-w-[1600px] mx-auto flex justify-center px-4 text-gray-800 ">
+        <div className="container  px-6 py-6 ">
           <Link to='/' className="flex justify-center text-white">
             <h2 className="text-red-300 text-2xl font-semibold">Dine<span className="font-semibold text-2xl italic text-red-600  ">Flow</span></h2>
           </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+              className="px-4 py-2 text-gray-700 bg-white dark:bg-stone-300 border rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
               placeholder="Email Address"
             />
             <button

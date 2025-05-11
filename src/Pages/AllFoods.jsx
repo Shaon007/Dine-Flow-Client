@@ -25,10 +25,10 @@ const AllFoods = () => {
     });
 
   return (
-    <div className="p-6 bg-gray-200 min-h-screen">
+    <div className="p-6 bg-gray-200 dark:bg-gray-900 min-h-screen">
       {/* Page Title */}
       <div className="text-center pt-20">
-        <h1 className="text-4xl font-bold font-mono">All Foods</h1>
+        <h1 className="text-4xl font-bold font-mono dark:text-gray-200">All Foods</h1>
       </div>
 
       {/* Search and Sort Bar */}
@@ -38,13 +38,13 @@ const AllFoods = () => {
           placeholder="Search for foods..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-3 border border-gray-300 rounded-lg w-full max-w-md shadow"
+          className="p-3 border bg-white  border-gray-300 dark:bg-stone-200 rounded-lg w-full max-w-md shadow"
         />
 
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="p-3 border border-gray-300 rounded-lg shadow text-gray-600 max-w-xs"
+          className="p-3 border border-gray-300 dark:bg-stone-200 rounded-lg shadow bg-white max-w-xs"
         >
           <option value="">Sort by Price</option>
           <option value="asc">Price: Low to High</option>

@@ -22,14 +22,14 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div className='bg-stone-200 dark:bg-gray-900'>
       <Banner />
       <Welcome/>
       <TopFood />
 
       {/* Country Food Section */}
       <div className="p-6 space-y-8 w-11/12 mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-6">Explore Your Native Foods...</h2>
+        <h2 className="text-4xl font-bold text-center mb-6 dark:text-gray-300">Explore Your Native Foods...</h2>
 
         {/* Display food from China */}
         <CountryFood country="Bangladesh" foodId="676d977cc53a3d0b40bc14ff" />

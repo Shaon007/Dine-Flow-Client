@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="max-w-[1600px] h-screen mx-auto px-4 py-6 grid grid-cols-2 items-center justify-center bg-[url('https://i.pinimg.com/1200x/38/f4/d6/38f4d6205c57fb2b4e63e70d087b9ad6.jpg')] bg-cover bg-center image-opacity-50">
+    <div className="max-w-[1600px] h-screen mx-auto px-4 py-6 grid grid-cols-2 items-center justify-center bg-[url('https://i.pinimg.com/1200x/38/f4/d6/38f4d6205c57fb2b4e63e70d087b9ad6.jpg')] bg-cover bg-center ">
       <div className="w-full col-span-1">
         <h1 className="text-3xl font-bold text-center text-gray-100">Contact Us</h1>
         <form className="mt-6 space-y-4 max-w-md mx-auto">
@@ -32,7 +32,7 @@ const Contact = () => {
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button type="submit" className="w-full px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+          <button type="submit" className="w-full px-6 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700">
             Send Message
           </button>
         </form>
@@ -44,7 +44,7 @@ const Contact = () => {
           height="450"
           allowfullscreen=""
           loading="lazy"
-          class="border-0"
+          class="border-0 dark:brightness-75"
         ></iframe>
       </div>
     </div>

@@ -50,18 +50,18 @@ const MyOrders = () => {
   if (fetchError) return <div className="text-center text-red-600">Error: {fetchError}</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-20 flex flex-col justify-center">
-      <h1 className="text-3xl md:text-5xl font-bold text-center mb-12 font-mono">My Orders</h1>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-20 flex flex-col justify-center">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-gray-200 font-mono">My Orders</h1>
 
       {orders.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
-            <thead className="bg-gray-100">
+          <table className="min-w-full bg-white dark:bg-slate-200 rounded-lg shadow-md overflow-hidden">
+            <thead className="bg-stone-200 dark:bg-stone-400 ">
               <tr>
                 {["Food Name", "Quantity", "Price", "Order Date", "Action"].map((heading) => (
                   <th
                     key={heading}
-                    className="py-3 px-6 text-left text-sm font-medium text-gray-700 uppercase tracking-wider"
+                    className="py-3 px-6 text-left text-sm text-gray-700 uppercase tracking-wider font-semibold"
                   >
                     {heading}
                   </th>
@@ -72,7 +72,7 @@ const MyOrders = () => {
               {orders.map((order, idx) => (
                 <tr
                   key={order._id}
-                  className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  className={idx % 2 === 0 ? "bg-stone-50 dark:bg-stone-200" : "bg-stone-200 dark:bg-stone-300"}
                 >
                   <td className="py-3 px-6 text-gray-800">{order.foodName}</td>
                   <td className="py-3 px-6 text-gray-800">{order.quantity}</td>

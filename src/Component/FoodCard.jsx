@@ -5,7 +5,7 @@ const FoodCard = ({ food }) => {
   const { foodName, foodCategory, purchaseCount, price, _id, foodImage } = food;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.02] overflow-hidden">
+    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.02] overflow-hidden dark:bg-stone-300">
       <img
         src={foodImage}
         alt={foodName}

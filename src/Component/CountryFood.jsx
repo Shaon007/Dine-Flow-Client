@@ -24,7 +24,7 @@ const CountryFood = ({ country, reverse, foodId }) => {
   return (
     <Link
       to={`/foods/${food._id}`}
-      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-center bg-gray-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
+      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-center bg-gray-100 dark:bg-stone-300 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
     >
       <div className="md:w-1/2">
         <img

@@ -34,14 +34,13 @@ const Review = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-    }, 5000); // Change slide every 5 seconds (5000ms)
+    }, 5000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="w-full mx-auto my-10 px-4">
+    <div className="w-full mx-auto my-10 px-4 pb-20">
       <div className="carousel w-full">
         {reviews.map((review, index) => (
           <div

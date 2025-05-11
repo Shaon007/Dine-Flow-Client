@@ -34,29 +34,29 @@ const MyFoods = () => {
   );
 
   return (
-    <div className="min-h-screen  bg-gray-50 py-16 px-20 flex flex-col justify-center ">
-      <h1 className="text-3xl md:text-5xl font-bold text-center mb-20 font-mono">My Foods</h1>
+    <div className="min-h-screen  bg-gray-50 dark:bg-gray-900 py-16 px-20 flex flex-col justify-center ">
+      <h1 className="text-3xl md:text-4xl font-bold text-center dark:text-gray-200 mb-20 font-mono">My Foods</h1>
 
       {userFoods.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
-            <thead className="bg-gray-100">
+          <table className="min-w-full bg-white  rounded-lg shadow-md overflow-hidden">
+            <thead className="bg-gray-100 dark:bg-stone-300">
               <tr>
                 {["Image", "Name", "Category", "Price", "Sold", "Action"].map((heading) => (
                   <th
                     key={heading}
-                    className="py-3 px-6 text-left text-sm font-medium text-gray-700 uppercase tracking-wider"
+                    className="py-3 px-6 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider"
                   >
                     {heading}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 dark:bg-stone-300">
               {userFoods.map((food, idx) => (
                 <tr
                   key={food._id}
-                  className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  className={idx % 2 === 0 ? "bg-white dark:bg-stone-200" : "bg-gray-50 dark:bg-stone-300"}
                 >
                   <td className="py-3 px-6">
                     <img

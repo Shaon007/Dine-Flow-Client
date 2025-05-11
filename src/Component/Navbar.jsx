@@ -11,7 +11,9 @@ const Navbar = () => {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+
+    // document.documentElement.se.add(newTheme);
   };
 
   const handleLogout = () => {
@@ -117,7 +119,7 @@ const Navbar = () => {
               onChange={toggleTheme}
               checked={theme === "dark"}
             />
-            <div className="w-12 h-6 bg-gray-300 rounded-full p-1 flex items-center justify-start dark:bg-purple-600">
+            <div className="w-12 h-6 bg-gray-300 rounded-full p-1 flex items-center justify-start dark:bg-gray-700 transition-colors duration-300">
               <div
                 className={`w-4 h-4 bg-white rounded-full shadow-md transition-transform ${theme === "dark" ? "transform translate-x-6" : ""
                   }`}

@@ -25,9 +25,9 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
       {/* Page Title */}
-      <h1 className="text-5xl font-bold text-center mb-10">Gallery</h1>
+      <h1 className="text-4xl pt-10 font-mono font-bold text-center mb-10 dark:text-gray-200">Gallery</h1>
 
       {/* Gallery Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -43,7 +43,7 @@ const Gallery = () => {
               className="w-full h-60 object-cover rounded-lg shadow-md"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
               <p className="text-white text-lg font-semibold">{image.name}</p>
               <p className="text-white text-sm">{image.description}</p>
             </div>
