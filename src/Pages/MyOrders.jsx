@@ -12,7 +12,9 @@ const MyOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`https://dine-flow-server-neon.vercel.app/purchases/${user.email}`);
+        const res = await fetch(
+          `https://dine-flow-server-neon.vercel.app/purchases/${user.email}`
+        );
         const data = await res.json();
         setOrders(data);
       } catch (err) {
@@ -37,46 +39,53 @@ const MyOrders = () => {
       }
 
       setOrders(orders.filter((order) => order._id !== orderId));
-      Swal.fire("Success", "Order deleted successfully", "success");
+      Swal.fire("Deleted!", "Order removed successfully", "success");
     } catch (err) {
       console.error("Error deleting order:", err);
       Swal.fire("Error", err.message || "An error occurred", "error");
     }
   };
 
-  if (loading) return <div>Loading user information...</div>;
-  if (fetchError) return <div>Error fetching orders: {fetchError}</div>;
+  if (loading) return <div className="text-center py-20">Loading user info…</div>;
+  if (fetchError) return <div className="text-center text-red-600">Error: {fetchError}</div>;
 
   return (
-    <div className="my-orders-page my-12 lg:w-11/12 mx-auto">
-      <h1 className="text-2xl md:text-4xl text-center font-bold my-6">My Orders</h1>
+    <div className="min-h-screen bg-gray-50 py-16 px-20 flex flex-col justify-center">
+      <h1 className="text-3xl md:text-5xl font-bold text-center mb-12 font-mono">My Orders</h1>
+
       {orders.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="table-auto w-full border-collapse text-sm md:text-base">
-            <thead>
+          <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead className="bg-gray-100">
               <tr>
-                <th className="px-2 md:px-4 py-2 border">Food Name</th>
-                <th className="px-2 md:px-4 py-2 border">Quantity</th>
-                <th className="px-2 md:px-4 py-2 border">Price</th>
-                <th className="px-2 md:px-4 py-2 border">Order Date</th>
-                <th className="px-2 md:px-4 py-2 border">Action</th>
+                {["Food Name", "Quantity", "Price", "Order Date", "Action"].map((heading) => (
+                  <th
+                    key={heading}
+                    className="py-3 px-6 text-left text-sm font-medium text-gray-700 uppercase tracking-wider"
+                  >
+                    {heading}
+                  </th>
+                ))}
               </tr>
             </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order._id}>
-                  <td className="px-2 md:px-4 py-2 border">{order.foodName}</td>
-                  <td className="px-2 md:px-4 py-2 border">{order.quantity}</td>
-                  <td className="px-2 md:px-4 py-2 border">${order.price}</td>
-                  <td className="px-2 md:px-4 py-2 border">
+            <tbody className="divide-y divide-gray-200">
+              {orders.map((order, idx) => (
+                <tr
+                  key={order._id}
+                  className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                >
+                  <td className="py-3 px-6 text-gray-800">{order.foodName}</td>
+                  <td className="py-3 px-6 text-gray-800">{order.quantity}</td>
+                  <td className="py-3 px-6 text-gray-800">${order.price}</td>
+                  <td className="py-3 px-6 text-gray-800">
                     {order.buyingDate
                       ? new Date(order.buyingDate).toLocaleDateString()
-                      : "Date not available"}
+                      : "N/A"}
                   </td>
-                  <td className="px-2 md:px-4 py-2 border">
+                  <td className="py-3 px-6">
                     <button
                       onClick={() => handleDelete(order._id)}
-                      className="bg-red-500 text-white py-1 px-2 md:px-3 rounded-lg hover:bg-red-600 flex items-center justify-center"
+                      className="text-white bg-red-500 hover:bg-red-600 transition px-3 py-1 rounded-md flex items-center justify-center"
                     >
                       <FaTrash />
                     </button>
@@ -87,7 +96,9 @@ const MyOrders = () => {
           </table>
         </div>
       ) : (
-        <p className="text-center text-lg mt-8">No orders found for your account.</p>
+        <p className="text-center text-gray-600 mt-8">
+          You haven't placed any orders yet.
+        </p>
       )}
     </div>
   );

@@ -74,8 +74,8 @@ const AddFood = () => {
   };
 
   return (
-    <div className="add-food-page p-8 max-w-3xl mx-auto ">
-      <h1 className="text-2xl font-bold mb-4">Add Food Item</h1>
+    <div className="py-10 p-8 max-w-3xl mx-auto  ">
+      <h1 className="text-4xl font-bold py-12 text-center font-mono">Add Food Item</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className='grid grid-cols-2 gap-3'>
           <div>
@@ -185,7 +185,7 @@ const AddFood = () => {
             className="textarea textarea-bordered w-full"
           />
         </div>
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-cyan-600 w-full text-white">
           Add Item
         </button>
       </form>

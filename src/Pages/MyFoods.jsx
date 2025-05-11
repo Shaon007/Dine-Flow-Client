@@ -12,69 +12,76 @@ const MyFoods = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const response = await axios.get(
+        const { data } = await axios.get(
           "https://dine-flow-server-neon.vercel.app/foods",
           { withCredentials: true }
         );
-        setFoods(response.data);
+        setFoods(data);
       } catch (err) {
         console.error("Error fetching foods:", err);
         setFetchError(err.message);
       }
     };
-
     fetchFoods();
   }, []);
 
-  if (loading) return <div>Loading user information...</div>;
-  if (fetchError) return <div>Error fetching food data: {fetchError}</div>;
+  if (loading) return <div className="text-center py-20">Loading user info…</div>;
+  if (fetchError) return <div className="text-center py-20 text-red-600">Error: {fetchError}</div>;
 
   const userFoods = foods.filter(
     (food) => food.addedByEmail?.toLowerCase() === user?.email?.toLowerCase()
   );
 
   return (
-    <div className="my-foods-page my-12 px-4">
-      <h1 className="text-2xl md:text-4xl text-center font-bold my-6">My Foods</h1>
+    <div className="min-h-screen  bg-gray-50 py-16 px-20 flex flex-col justify-center ">
+      <h1 className="text-3xl md:text-5xl font-bold text-center mb-20 font-mono">My Foods</h1>
+
       {userFoods.length > 0 ? (
-        <table className="w-full md:w-10/12 mx-auto border-collapse">
-          <thead>
-            <tr>
-              <th className="px-2 md:px-4 py-2 border">Image</th>
-              <th className="px-2 md:px-4 py-2 border">Food Name</th>
-              <th className="px-2 md:px-4 py-2 border">Category</th>
-              <th className="px-2 md:px-4 py-2 border">Price</th>
-              <th className="px-2 md:px-4 py-2 border">Sold</th>
-              <th className="px-2 md:px-4 py-2 border">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userFoods.map((food) => (
-              <tr key={food._id}>
-                <td className="px-2 md:px-4 py-2 border">
-                  <img
-                    src={food.foodImage}
-                    alt={food.foodName}
-                    className="w-12 h-12 md:w-16 md:h-16 object-cover rounded mx-auto"
-                  />
-                </td>
-                <td className="px-2 md:px-4 py-2 border">{food.foodName}</td>
-                <td className="px-2 md:px-4 py-2 border">{food.foodCategory}</td>
-                <td className="px-2 md:px-4 py-2 border">${food.price}</td>
-                <td className="px-2 md:px-4 py-2 border">
-                  {food.purchaseCount || 0}
-                </td>
-                <td className="px-2 md:px-4 py-2 border">
-                  <Link to={`/updateFood/${food._id}`}>
-                    <FaGears className="w-6 h-6 md:w-10 md:h-10 mx-auto" />
-                  </Link>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead className="bg-gray-100">
+              <tr>
+                {["Image", "Name", "Category", "Price", "Sold", "Action"].map((heading) => (
+                  <th
+                    key={heading}
+                    className="py-3 px-6 text-left text-sm font-medium text-gray-700 uppercase tracking-wider"
+                  >
+                    {heading}
+                  </th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {userFoods.map((food, idx) => (
+                <tr
+                  key={food._id}
+                  className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                >
+                  <td className="py-3 px-6">
+                    <img
+                      src={food.foodImage}
+                      alt={food.foodName}
+                      className="w-12 h-12 object-cover rounded"
+                    />
+                  </td>
+                  <td className="py-3 px-6 text-gray-800">{food.foodName}</td>
+                  <td className="py-3 px-6 text-gray-800">{food.foodCategory}</td>
+                  <td className="py-3 px-6 text-gray-800">${food.price}</td>
+                  <td className="py-3 px-6 text-gray-800">
+                    {food.purchaseCount || 0}
+                  </td>
+                  <td className="py-3 px-6">
+                    <Link to={`/updateFood/${food._id}`}>
+                      <FaGears className="w-6 h-6 text-gray-600 hover:text-gray-900 transition" />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <p className="text-center">No food items found for your account.</p>
+        <p className="text-center text-gray-600">You haven't added any foods yet.</p>
       )}
     </div>
   );
