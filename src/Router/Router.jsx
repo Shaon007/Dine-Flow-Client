@@ -15,6 +15,7 @@ import Purchase from "../Pages/Purchase";
 import AddFood from "../Pages/AddFood";
 import MyOrders from "../Pages/MyOrders";
 import UpdateFood from "../Pages/UpdateFood";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: '/foods/:id',

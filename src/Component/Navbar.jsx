@@ -53,7 +53,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`max-w-[1600px] mx-auto flex justify-between items-center px-16 py-2  fixed top-0 w-full z-50 shadow-lg transition-all duration-300 ${scrolled ? "bg-[#1F2937] shadow-md" : "bg-black bg-opacity-30"
+    <div className={`max-w-[1600px] mx-auto flex justify-between items-center px-16 py-2  fixed top-0 w-full z-50 shadow-lg transition-all duration-300 ${scrolled ? "bg-[#1F2937] shadow-md" : "bg-black bg-opacity-40"
       }`}>
       {/* Logo */}
       <div className="text-lg gap-2 flex justify-center items-center">
@@ -67,8 +67,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
-              : "text-cyan-500 hover:text-cyan-500 transition-colors duration-200"
+              ? "text-cyan-200 hover:text-gray-600 underline underline-offset-8"
+              : "text-cyan-300 hover:text-cyan-500 transition-colors duration-200"
           }
           to="/"
         >
@@ -77,8 +77,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
-              : "text-cyan-500 hover:text-cyan-500"
+              ? "text-cyan-200 hover:text-gray-600 underline underline-offset-8"
+              : "text-cyan-300 hover:text-cyan-500"
           }
           to="/allFoods"
         >
@@ -87,12 +87,22 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-cyan-300 hover:text-gray-600 underline underline-offset-4"
-              : "text-cyan-500 hover:text-cyan-500"
+              ? "text-cyan-200 hover:text-gray-600 underline underline-offset-8"
+              : "text-cyan-300 hover:text-cyan-500"
           }
           to="/gallery"
         >
           Gallery
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-cyan-200 hover:text-gray-600 underline underline-offset-8 "
+              : "text-cyan-300 hover:text-cyan-500"
+          }
+          to="/contact"
+        >
+          Contact
         </NavLink>
       </div>
 
@@ -132,30 +142,30 @@ const Navbar = () => {
                 <div className="absolute right-0 mt-52 w-48 bg-white border rounded-lg shadow-lg z-50 profile-dropdown">
                   <NavLink
                     to="/myFoods"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-cyan-200"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    MyFoods
+                    My Foods
                   </NavLink>
                   <NavLink
                     to="/addFood"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-cyan-200"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    AddFood
+                    Add Food
                   </NavLink>
                   <NavLink
                     to="/myOrders"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-cyan-200"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    MyOrders
+                    My Orders
                   </NavLink>
                   <button
                     onClick={handleLogout}
-                    className="w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
+                    className="w-full text-left px-4 py-2 text-red-500 hover:bg-cyan-200"
                   >
-                    Logout
+                    Log Out
                   </button>
                   <button
                     onClick={() => setDropdownOpen(false)}
@@ -169,7 +179,7 @@ const Navbar = () => {
               <div className="hidden lg:block">
                 <button
                   onClick={handleLogout}
-                  className="btn ml-2 px-2 py-1 border-2 rounded-lg text-stone-700 hover:bg-stone-100"
+                  className=" ml-2 px-4 py-3 bg-cyan-700  rounded-lg text-stone-200 hover:bg-stone-100 text-semibold"
                 >
                   Logout
                 </button>
