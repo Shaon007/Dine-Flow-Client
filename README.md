@@ -53,5 +53,6 @@ Follow these steps to set up and run the project locally:
    git clone https://github.com/your-username/dine-flow.git
    cd dine-flow
 2. **Install dependencies and run**
+   ```bash
    npm i
    npm run dev
