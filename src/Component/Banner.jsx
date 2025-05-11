@@ -39,12 +39,12 @@ export default function App() {
           className="mySwiper"
         >
 
-          <SwiperSlide><img className='brightness-50' src="https://tint.creativemarket.com/_HAQrXLcjkzwgVSGGu7S_dLVom3P-aFMvyvvh383Cjk/width:1820/height:1212/gravity:ce/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzM1Ni8zNTY3LzM1NjcxMTAvcjU0a3JiYWp6bWowMW12YjhxajBtY3BuaXNjcnJvcjhrY2l4NzFpMDM2dHRjNXRxMmZncmNlYnIyamRxeGRrcS1vLmpwZw?1510557378" alt="" /></SwiperSlide>
-          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/73/1b/9e/731b9e6e1f0c240fe330e05344054fd9.jpg" alt="" /></SwiperSlide>
+          <SwiperSlide><img className='brightness-50' src="https://tint.creativemarket.com/_HAQrXLcjkzwgVSGGu7S_dLVom3P-aFMvyvvh383Cjk/width:1820/height:1212/gravity:ce/rt:fill-down/el:1/czM6Ly9maWxlcy5jcmVhdGl2ZW1hcmtldC5jb20vaW1hZ2VzL3NjcmVlbnNob3RzL3Byb2R1Y3RzLzM1Ni8zNTY3LzM1NjcxMTAvcjU0a3JiYWp6bWowMW12YjhxajBtY3BuaXNjcnJvcjhrY2l4NzFpMDM2dHRjNXRxMmZncmNlYnIyamRxeGRrcS1vLmpwZw?1510557378" alt="banner1" /></SwiperSlide>
+          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/73/1b/9e/731b9e6e1f0c240fe330e05344054fd9.jpg" alt="banner2" /></SwiperSlide>
 
-          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/24/a1/c5/24a1c58e10f311a2e2f491f78d1334c7.jpg" alt="" /></SwiperSlide>
-          <SwiperSlide><img className='brightness-50'  src="https://i.pinimg.com/1200x/03/a3/70/03a370a93b429a30451122ab436f25a2.jpg" alt="" /></SwiperSlide>
-          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/ef/7d/a6/ef7da692d3e9b93452ca522dd512741f.jpg" alt="" /></SwiperSlide>
+          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/24/a1/c5/24a1c58e10f311a2e2f491f78d1334c7.jpg" alt="banner3" /></SwiperSlide>
+          <SwiperSlide><img className='brightness-50'  src="https://i.pinimg.com/1200x/03/a3/70/03a370a93b429a30451122ab436f25a2.jpg" alt="banner4" /></SwiperSlide>
+          <SwiperSlide><img className='brightness-50' src="https://i.pinimg.com/1200x/ef/7d/a6/ef7da692d3e9b93452ca522dd512741f.jpg" alt="banner6" /></SwiperSlide>
 
 
         </Swiper>

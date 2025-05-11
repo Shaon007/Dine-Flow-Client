@@ -131,7 +131,7 @@ const Navbar = () => {
               {/* Profile Image */}
               <img
                 className="rounded-full w-10 h-10 object-cover border-2 border-white cursor-pointer"
-                src={user.photoURL || "/default-profile.png"}
+                src={user.photoURL ? user.photoURL : "https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"}
                 alt="Profile"
                 title={user.displayName || "Profile"}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -190,7 +190,7 @@ const Navbar = () => {
               {/* Login Button */}
               <NavLink
                 to="/login"
-                className="px-4 py-2 border-2 rounded-lg text-stone-700 hover:bg-stone-100"
+                className="px-4 py-2 border-2 bg-gray-500 rounded-lg text-white hover:bg-stone-100"
               >
                 Login
               </NavLink>

@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { FaGears } from "react-icons/fa6";
+import Error from "./Error";
 
 const MyFoods = () => {
   const { user, loading } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const MyFoods = () => {
   }, []);
 
   if (loading) return <div className="text-center py-20">Loading user info…</div>;
-  if (fetchError) return <div className="text-center py-20 text-red-600">Error: {fetchError}</div>;
+  if (fetchError) return <div className="text-center py-20 text-red-600"><Error></Error></div>;
 
   const userFoods = foods.filter(
     (food) => food.addedByEmail?.toLowerCase() === user?.email?.toLowerCase()
