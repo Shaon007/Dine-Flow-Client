@@ -17,9 +17,9 @@ const AllFoods = () => {
   );
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-gray-300">
       {/* Page Title */}
-      <div className="bg-gray-100 text-center py-12">
+      <div className=" text-center pt-20">
         <h1 className="text-4xl font-bold">All Foods</h1>
       </div>
 
@@ -35,7 +35,7 @@ const AllFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => <FoodCard key={food._id} food={food} />)
         ) : (

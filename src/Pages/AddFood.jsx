@@ -74,7 +74,7 @@ const AddFood = () => {
   };
 
   return (
-    <div className="add-food-page p-8 max-w-3xl mx-auto">
+    <div className="add-food-page p-8 max-w-3xl mx-auto ">
       <h1 className="text-2xl font-bold mb-4">Add Food Item</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className='grid grid-cols-2 gap-3'>
