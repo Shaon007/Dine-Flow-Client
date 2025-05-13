@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className='bg-stone-200 dark:bg-gray-900'>
       <Banner />
-      <Welcome/>
+      <Welcome />
       <TopFood />
 
       {/* Country Food Section */}

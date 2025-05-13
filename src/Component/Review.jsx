@@ -41,6 +41,7 @@ const Review = () => {
 
   return (
     <div className="w-full mx-auto my-10 px-4 pb-20">
+      <h2 className='text-center mb-10 text-2xl md:text-3xl text-gray-800 dark:text-gray-200'> -- What Clients Say --</h2>
       <div className="carousel w-full">
         {reviews.map((review, index) => (
           <div

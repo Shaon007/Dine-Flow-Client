@@ -12,7 +12,7 @@ const TopFood = () => {
         const filteredFoods = data
           .filter((food) => food.purchaseCount >= 5)
           .sort((a, b) => b.purchaseCount - a.purchaseCount);
-        setFoods(filteredFoods.slice(0, 6));
+        setFoods(filteredFoods.slice(0, 8));
       });
   }, []);
 
