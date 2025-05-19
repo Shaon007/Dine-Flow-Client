@@ -50,7 +50,7 @@ Follow these steps to set up and run the project locally:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/programming-hero-web-course2/b10a11-client-side-Shaon007/tree/main
+   git clone https://github.com/Shaon007/Dine-Flow-Client
    cd dine-flow
 2. **Install dependencies and run**
    ```bash

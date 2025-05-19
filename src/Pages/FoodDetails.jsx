@@ -44,10 +44,10 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-200 dark:bg-gray-900 overflow-hidden flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-stone-200 dark:bg-gray-900 overflow-hidden flex items-center justify-center px-4 py-16 md:py-8">
       <div className="w-full max-w-5xl bg-white dark:bg-stone-200 shadow-xl rounded-xl overflow-hidden">
         <div className="text-center px-4 py-6 border-b">
-          <h2 className="font-mono text-3xl md:text-4xl font-bold text-gray-800">{foodName}</h2>
+          <h2 className="font-mono text-3xl md:text-4xl capitalize font-bold text-gray-800">{foodName}</h2>
           <p className="text-blue-600 font-medium text-md md:text-lg mt-2">{foodCategory}</p>
         </div>
 
