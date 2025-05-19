@@ -60,7 +60,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="text-lg gap-2 flex justify-center items-center">
         <NavLink className="font-bold md:text-2xl text-stone-700" to="/">
-          <h2 className="text-red-300 font-semibold">Dine<span className="font-semibold md:text-2xl italic text-red-600  ">Flow</span></h2>
+          <h2 className="font-mono text-red-400 font-semibold">Dine<span className="font-semibold md:text-2xl italic text-red-600  ">Flow</span></h2>
         </NavLink>
       </div>
 
