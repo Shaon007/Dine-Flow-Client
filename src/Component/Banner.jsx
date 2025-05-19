@@ -11,8 +11,10 @@ import './styles.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 
 export default function App() {
+  const navigate = useNavigate();
   return (
     <>
       <div className='relative'>
@@ -21,7 +23,7 @@ export default function App() {
             <h2 className='text-md md:text-2xl font-semibold'>-- Savor the Flavor --</h2>
             <h2 className='text-white text-2xl md:text-8xl font-bold italic'>DineFlow</h2>
             <h2 className='text-md md:text-xl'>Where Every Bite Tells a Story.</h2>
-            <button className='mt-16 border-b-2 border-cyan-500 text-xl md:text-2xl hover:text-cyan-500'>Contact US</button>
+            <button onClick={() => navigate('/contact')} className='mt-16 border-b-2 border-cyan-500 text-xl md:text-2xl hover:text-cyan-500'>Contact US</button>
           </div>
         </div>
         <Swiper
